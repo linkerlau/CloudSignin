@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/header_style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/footer_style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/result_style.css}"/>
+    <script type="text/javascript" th:src="@{/resources/static/js/Chart.js}"></script>
+    <script type="text/javascript" th:src="@{/resources/static/js/jquery-3.4.1.js}"></script>
+
+    <title>Title</title>
+</head>
+<body>
+
+    <div id="header" th:include="page::header"></div>
+
+    <div id="body">
+        <input type="hidden" id="res" th:value="${res}"/>
+        <form class="body_panel" method="post">
+            <label>
+                <input class="choose_date" type="date"/>
+            </label>
+            <span>至</span>
+            <label>
+                <input class="choose_date" type="date"/>
+            </label>
+            <button type="submit" id="body_panel_optional_situation">查询签到情况</button>
+        </form>
+        <div id="body_content">
+            <canvas id="body_content_chart" width="400" height="400"  ></canvas>
+        </div>
+    </div>
+
+
+    <div id="footer" th:include="page::footer"></div>
+
+
+    <script th:src="@{/resources/static/js/result.js}"></script>
+
+</body>
+</html>

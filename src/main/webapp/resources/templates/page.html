@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Title</title>
+</head>
+<body>
+    <div th:fragment="header">
+        <div class="title">
+            <img class="header_img" th:src="@{/resources/static/img/fav.jpg}" alt="wrong" src=""/>
+            <span class="title_name">云签</span>
+        </div>
+        <ul class="header_list">
+            <li><a th:href="@{/home}">主页</a></li>
+
+            <li th:if="${session.user} == null"><a th:href="@{/login}">登录</a></li>
+            <li th:if="${session.user} != null"><a th:href="@{/user}" th:text="${session.user.getUsername()}">用户名</a></li>
+
+            <li th:if="${session.user} == null"><a th:href="@{/register}">注册</a></li>
+            <li th:if="${session.user} != null"><a id="logout" th:href="@{/logout}" >注销</a></li>
+        </ul>
+        <hr/>
+    </div>
+
+    <div>Content goes here</div>
+
+    <div th:fragment="footer">
+        Copyright &copy; LinkerLau
+    </div>
+
+</body>
+</html>

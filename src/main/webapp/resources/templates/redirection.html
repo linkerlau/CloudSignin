@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" http-equiv="refresh" content="2;URL=/user"/>
+    <title>提示</title>
+</head>
+<body>
+    <div th:switch="${msg}" style="text-align: center">
+        <h4 th:case="'success'" th:text="'更新成功，2秒后自动跳转...'"></h4>
+        <h4 th:case="'failed'" th:text="'更新失败，2秒后自动跳转...'"></h4>
+    </div>
+</body>
+</html>

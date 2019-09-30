@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+<head>
+    <meta charset="utf-8"/>
+    <title>register</title>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/header_style.css}" />
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/modify_style.css}"/>
+    <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/footer_style.css}"/>
+</head>
+<body>
+
+<div id="header" th:include="page::header"></div>
+
+<div id="register">
+
+    <h4 class="register-title" >修改个人信息</h4>
+
+    <form class="form" role="form" method="post" th:object="${user}" th:action="@{/user/modify}">
+        <div class="form_items relative_position" >
+            <label for="username">用户名:&nbsp;&nbsp;</label>
+            <input th:field="*{username}" type="text" class="form-control" name="username" id="username" placeholder="用户名"/>
+        </div>
+
+        <div class="form_items relative_position">
+            <label for="password">密&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;</label>
+            <input th:field="*{password}" type="password" class="form-control" name="password" id="password" placeholder="6~20位数字、字符任意组合" required="required"/>
+        </div>
+
+        <div class="form_items relative_position" >
+            <label for="signature">签&nbsp;&nbsp;&nbsp;名:&nbsp;&nbsp;</label>
+            <input th:field="*{sig}" type="text" class="form-control" name="sig" id="signature" placeholder="请输入签名"/>
+        </div>
+
+        <div class="form_items relative_position">
+            <label for="qq">Q&nbsp;&nbsp;&nbsp;&nbsp;Q:&nbsp;&nbsp;</label>
+            <input th:field="*{qq}" type="text" class="form-control" name="qq" id="qq" placeholder="请输入QQ号"/>
+        </div>
+        <div class="form_items relative_position" >
+            <label>性&nbsp;&nbsp;&nbsp;别:&nbsp;&nbsp;</label>
+            <div id="all_sex" th:with="sex=(${session.user.sex})">
+                <label for="male">&nbsp;&nbsp;男</label>
+                <input th:if="${sex}=='male'" type="radio" value="male" checked="checked" name="sex" id="male"/>
+                <input th:if="${sex}=='female'" type="radio" value="male" name="sex" th:id="male"/>
+
+                <label for="female">&nbsp;&nbsp;女</label>
+                <input th:if="${sex}=='male'" type="radio" value="female" id="female" name="sex" />
+                <input th:if="${sex}=='female'" type="radio" value="female" checked="checked" th:id="female" name="sex" />
+            </div>
+        </div>
+        <div class="form_items" id="submit_button">
+            <button type="submit" id="submit" class="button"
+                    onmouseover="this.style.backgroundColor='#B4B4B4';"
+                    onmouseout="this.style.backgroundColor='#CDCDCD';" >提交</button>
+        </div>
+    </form>
+
+</div>
+
+<div id="footer" th:include="page::footer"></div>
+
+</body>
+</html>

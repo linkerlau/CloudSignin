@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+	<head>
+		<title>login</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/header_style.css}"/>
+		<link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/login_style.css}"/>
+		<link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/footer_style.css}"/>
+        <script th:src="@{/resources/static/js/jquery-3.4.1.js}"></script>
+        <script th:src="@{/resources/static/js/login.js}"></script>
+    </head>
+	<body>
+'
+
+        <div id="header" th:include="page::header"></div>
+
+		<div class="login">
+
+            <h2 class="login_title" >登录</h2>
+
+            <form th:action="@{/login}" method="post" class="login_form" role="form">
+                <h5 class="wrong" th:if="${error} != null" th:text="${error}"></h5>
+                <div class="username" >
+                    <label class="font" for="username">用户名:&emsp;&emsp;</label>
+                    <input type="text" class="username" name="username" id="username" placeholder="用户名" required="required"/>
+                </div>
+                <div class="password">
+                    <label class="font" th:for="password" for="password">密&emsp;码:&emsp;&emsp;</label>
+                    <input type="password" class="password"  name="password" id="password" value="" placeholder="6~20位数字、字符" required="required"/>
+                </div>
+                <div class="submit">
+                    <button type="submit" id="submit" class="button"  onmouseover="this.style.backgroundColor='#B4B4B4';"
+                            onmouseout="this.style.backgroundColor='#CDCDCD';" >登录
+                    </button>
+                </div>
+            </form>
+		</div>
+
+        <div id="footer" th:include="page::footer"></div>
+
+	</body>
+</html>

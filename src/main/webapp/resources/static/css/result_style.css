@@ -1,0 +1,17 @@
+* {
+    margin: 0;
+    padding: 0;
+    text-decoration: none;
+}
+
+#body {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.body_panel {
+    height: 100px;
+    line-height: 100px;
+    text-align: center;
+    background-color: #f2f2f2;
+}

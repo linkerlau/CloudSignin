@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="zh">
+	<head>
+		<meta charset="utf-8"/>
+		<title>register</title>
+		<link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/header_style.css}" />
+		<link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/register_style.css}"/>
+		<link rel="stylesheet" type="text/css" th:href="@{/resources/static/css/footer_style.css}"/>
+	</head>
+	<body>
+
+		<div id="header" th:include="page::header"></div>
+
+		<div id="register">
+
+			<h2 class="register_title" >注册</h2>
+
+			<form class="form" method="post" th:action="@{/register}" enctype="multipart/form-data">
+                <h5 class="wrong" th:if="${msg} != null" th:text="${msg}"></h5>
+                <div class="form_items relative_position" >
+					<label for="username">用户名:&nbsp;&nbsp;</label>
+					<input type="text" class="form-control" name="username" id="username" placeholder="用户名" required="required"/>
+				</div>
+
+				<div class="form_items relative_position">
+					<label for="password">密&nbsp;&nbsp;&nbsp;码:&nbsp;&nbsp;</label>
+					<input type="password" class="form-control" name="password" id="password" onkeydown="" value="" placeholder="6~20位数字、字符任意组合" required="required"/>
+				</div>
+
+				<div class="form_items relative_position" >
+					<label for="signature">签&nbsp;&nbsp;&nbsp;名:&nbsp;&nbsp;</label>
+					<input type="text" class="form-control" name="sig" id="signature" placeholder="请输入签名" required="required"/>
+				</div>
+
+				<div class="form_items relative_position">
+					<label for="qq">Q&nbsp;&nbsp;&nbsp;&nbsp;Q:&nbsp;&nbsp;</label>
+					<input type="text" id="qq" class="form-control" name="qq" placeholder="请输入QQ号" required="required"/>
+				</div>
+				<div class="form_items relative_position">
+					<label for="avatar">头&nbsp;&nbsp;&nbsp;像:&nbsp;&nbsp;</label>
+					<input type="file" value="上传头像" id="avatar" name="avatarImg" accept="image/jpeg,image/png"/>
+				</div>
+				<div class="form_items relative_position" >
+					<label>性&nbsp;&nbsp;&nbsp;别:&nbsp;&nbsp;</label>
+					<div id="all_sex">
+						<label for="male">&nbsp;&nbsp;男</label>
+						<input type="radio" value="male" id="male" name="sex" checked="checked"/>
+						<label for="female">&nbsp;&nbsp;女</label>
+						<input type="radio" value="female" id="female" name="sex" />
+					</div>
+				</div>
+				<div class="form_items" id="submit_button">
+					<button type="submit" id="submit" class="button"  onmouseover="this.style.backgroundColor='#B4B4B4';"
+						onmouseout="this.style.backgroundColor='#CDCDCD';" >注册</button>
+				</div>
+			</form>
+
+		</div>
+
+		<div id="footer" th:include="page::footer"></div>
+
+	</body>
+</html>
